@@ -3,6 +3,7 @@
 //___________________
 const express = require('express');
 const mongoose = require ('mongoose');
+const cors = require('cors');
 const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
@@ -28,6 +29,7 @@ mongoose.connect(MONGODB_URI)
 
 //use public folder for static assets
 app.use(express.static('public'));
+app.use(cors());
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
 app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
