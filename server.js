@@ -44,7 +44,11 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //   res.send('Hello World!');
 // });
 
-// CUSTOMER PAGE API
+
+////////////////////////////////////
+//////// USER PAGE API //////////////
+/////////////////////////////////////
+
 app.post('/homecare', (req, res) => {
   Home.create(req.body).then((createdHome) => {
     res.json(createdHome)
@@ -67,6 +71,34 @@ app.put('/homecare/:id', (req, res) => {
   Home.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then((updatedHome) => res.json(updatedHome))
 })
+
+//////////////////////////////////////
+//////////// WORKER API ///////////////
+///////////////////////////////////////
+
+app.post('/homecare', (req, res) => {
+  Worker.create(req.body).then((createdWorker) => {
+    res.json(createdWorker)
+  })
+})
+
+app.get('/homecare', (req, res) => {
+  Worker.find({}).then((foundWorker) => {
+    res.json(foundWorker)
+  })
+})
+
+app.delete('/homecare/:id', (req, res) => {
+  Worker.findByIdAndRemove(req.params.id).then((deletedWorker) => {
+    res.json(deletedWorker)
+  })
+})
+
+app.put('/homecare/:id', (req, res) => {
+  Worker.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then((updatedWorker) => res.json(updatedWorker))
+})
+
 
 
 //___________________
