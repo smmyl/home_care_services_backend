@@ -10,7 +10,7 @@ const Home = require('./models/home')
 const Worker = require('./models/worker')
 require('dotenv').config()
 //___________________
-//Port
+//Port 3000
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT
