@@ -6,7 +6,7 @@ const mongoose = require ('mongoose');
 const cors = require('cors');
 const app = express ();
 const db = mongoose.connection;
-const Home = require('./models/home')
+const Member = require('./models/member')
 const Worker = require('./models/worker')
 require('dotenv').config()
 //___________________
@@ -40,9 +40,9 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 // Routes
 //___________________
 //localhost:3000
-// app.get('/' , (req, res) => {
-//   res.send('Hello World!');
-// });
+app.get('/' , (req, res) => {
+  res.send('Hello World!');
+});
 
 
 ////////////////////////////////////
@@ -50,26 +50,26 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 /////////////////////////////////////
 
 app.post('/homecare', (req, res) => {
-  Home.create(req.body).then((createdHome) => {
-    res.json(createdHome)
+  Member.create(req.body).then((createdMember) => {
+    res.json(createdMember)
   })
 })
 
 app.get('/homecare', (req, res) => {
-  Home.find({}).then((foundHome) => {
-    res.json(foundHome)
+  Member.find({}).then((foundMember) => {
+    res.json(foundMember)
   })
 })
 
 app.delete('/homecare/:id', (req, res) => {
-  Home.findByIdAndRemove(req.params.id).then((deletedHome) => {
-    res.json(deletedHome)
+  Member.findByIdAndRemove(req.params.id).then((deletedMember) => {
+    res.json(deletedMember)
   })
 })
 
 app.put('/homecare/:id', (req, res) => {
-  Home.findByIdAndUpdate(req.params.id, req.body, {new: true})
-  .then((updatedHome) => res.json(updatedHome))
+  Member.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then((updatedMember) => res.json(updatedMember))
 })
 
 //////////////////////////////////////

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const homeSchema = new mongoose.Schema({
+const memberSchema = new mongoose.Schema({
     name: String,
     age: Number,
     language: String,
@@ -13,6 +13,6 @@ const homeSchema = new mongoose.Schema({
     address: String
 })
 
-const Home = mongoose.model('Home', homeSchema)
+const Member = mongoose.model('Member', memberSchema)
 
-module.exports = Home
+module.exports = Member
