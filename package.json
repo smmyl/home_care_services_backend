@@ -9,6 +9,9 @@
     "start": "node server.js"
   },
   "name": "home_care_services_backend",
+  "engines": {
+    "node": "18.14.0"
+  },
   "description": "",
   "version": "1.0.0",
   "main": "server.js",
