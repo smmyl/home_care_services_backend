@@ -49,25 +49,30 @@ app.get('/' , (req, res) => {
 //////// USER PAGE API //////////////
 /////////////////////////////////////
 
-app.post('/homecare', (req, res) => {
+app.post('/members', (req, res) => {
   Member.create(req.body).then((createdMember) => {
     res.json(createdMember)
   })
 })
 
-app.get('/homecare', (req, res) => {
+app.get('/members', (req, res) => {
   Member.find({}).then((foundMember) => {
     res.json(foundMember)
   })
 })
+app.get('/members/:id', (req, res) => {
+  Member.findById(req.params.id).then((foundMember) => {
+    res.json(foundMember)
+  })
+})
 
-app.delete('/homecare/:id', (req, res) => {
+app.delete('/members/:id', (req, res) => {
   Member.findByIdAndRemove(req.params.id).then((deletedMember) => {
     res.json(deletedMember)
   })
 })
 
-app.put('/homecare/:id', (req, res) => {
+app.put('/members/:id', (req, res) => {
   Member.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then((updatedMember) => res.json(updatedMember))
 })
@@ -76,25 +81,25 @@ app.put('/homecare/:id', (req, res) => {
 //////////// WORKER API ///////////////
 ///////////////////////////////////////
 
-app.post('/homecare', (req, res) => {
+app.post('/workers', (req, res) => {
   Worker.create(req.body).then((createdWorker) => {
     res.json(createdWorker)
   })
 })
 
-app.get('/homecare', (req, res) => {
+app.get('/workers', (req, res) => {
   Worker.find({}).then((foundWorker) => {
     res.json(foundWorker)
   })
 })
 
-app.delete('/homecare/:id', (req, res) => {
+app.delete('/workers/:id', (req, res) => {
   Worker.findByIdAndRemove(req.params.id).then((deletedWorker) => {
     res.json(deletedWorker)
   })
 })
 
-app.put('/homecare/:id', (req, res) => {
+app.put('/workers/:id', (req, res) => {
   Worker.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then((updatedWorker) => res.json(updatedWorker))
 })
