@@ -5,11 +5,9 @@ const memberSchema = new mongoose.Schema({
     age: Number,
     language: String,
     familyMember: String,
-    services: {
-        clean: Boolean,
-        food: Boolean,
-        watch: Boolean
-    },
+        clean: {type: Boolean, default: false},
+        food: {type: Boolean, default: false},
+        watch: {type: Boolean, default: false},
     address: String
 })
 
