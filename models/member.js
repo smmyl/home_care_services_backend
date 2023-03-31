@@ -8,7 +8,8 @@ const memberSchema = new mongoose.Schema({
         clean: {type: Boolean, default: false},
         food: {type: Boolean, default: false},
         watch: {type: Boolean, default: false},
-    address: String
+    address: String,
+    image: String
 })
 
 const Member = mongoose.model('Member', memberSchema)
