@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.0.3"
@@ -7,14 +8,12 @@
   "scripts": {
     "start": "node server.js"
   },
-  "name": "home_care_services_backend",
+  "name": "backend_hcs",
   "engines": {
     "node": "18.14.0"
   },
-  "description": "",
   "version": "1.0.0",
   "main": "server.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/smmyl/home_care_services_backend.git"
@@ -24,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/smmyl/home_care_services_backend/issues"
   },
-  "homepage": "https://github.com/smmyl/home_care_services_backend#readme"
+  "homepage": "https://github.com/smmyl/home_care_services_backend#readme",
+  "description": ""
 }
